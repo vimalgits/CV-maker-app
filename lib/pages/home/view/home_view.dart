@@ -110,69 +110,70 @@ class LoginButton extends ConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               AuthFlowBuilder<OAuthController>(
-                flow: gConfig.createFlow(
-                    ref.watch(authApiProvider).firebaseAuth, AuthAction.signIn),
-                auth: ref.watch(authApiProvider).firebaseAuth,
-                config: const GoogleProviderConfiguration(clientId: clientId),
-                listener: (oldState, newState, controller) async {
-                  if (newState is SignedIn) {
-                    User? currentUser =
-                        ref.watch(authApiProvider).firebaseAuth.currentUser;
+                  flow: gConfig.createFlow(
+                      ref.watch(authApiProvider).firebaseAuth,
+                      AuthAction.signIn),
+                  auth: ref.watch(authApiProvider).firebaseAuth,
+                  config: const GoogleProviderConfiguration(clientId: clientId),
+                  listener: (oldState, newState, controller) async {
+                    if (newState is SignedIn) {
+                      User? currentUser =
+                          ref.watch(authApiProvider).firebaseAuth.currentUser;
 
-                    await ref
-                        .watch(firebaseFirestoreProvider)
-                        .collection('user')
-                        .doc(currentUser!.uid)
-                        .set({
-                      'uid': currentUser.uid,
-                      'lastLoggedIn': DateTime.now()
-                    });
-                  }
-                },
-                builder: (context, state, controller, _) {
-                  return SimpleElevatedButton(
-                      color: Pallete.backgroundColor,
-                      textColor: Pallete.primaryColor,
-                      buttonHeight: 50,
-                      buttonWidth: double.infinity,
-                      roundedRadius: 5,
-                      onPressed: () {
-                        controller.signInWithProvider(TargetPlatform.android);
-                      },
-                      text: 'Sign in with Google');
-                },
-              ),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  'OR',
-                  style: subtitle14.copyWith(
-                      color: Pallete.primaryLightColor,
-                      fontWeight: FontWeight.w400),
-                ),
-              ),
-              SimpleElevatedButton(
-                  color: Pallete.backgroundColor,
-                  textColor: Pallete.primaryColor,
-                  buttonHeight: 50,
-                  buttonWidth: double.infinity,
-                  roundedRadius: 5,
-                  onPressed: () {
-                    ref.watch(pdfProvider.notifier).editPdf(
-                          PdfModel.createEmpty().copyWith(pdfId: 'noSave'),
-                        );
-
-                    Get.toNamed('/resume');
+                      await ref
+                          .watch(firebaseFirestoreProvider)
+                          .collection('user')
+                          .doc(currentUser!.uid)
+                          .set({
+                        'uid': currentUser.uid,
+                        'lastLoggedIn': DateTime.now()
+                      });
+                    }
                   },
-                  text: 'Continue without signing in'),
-              const SizedBox(
-                height: 16,
-              ),
-              Text(
-                'Using your Google account will allow you to save up to 3 resumes, you can still continue without signing in but your resume will not be saved once you leave/refresh the site.',
-                style: caption12.copyWith(color: Pallete.backgroundColor),
-                textAlign: TextAlign.center,
-              ),
+                  builder: (context, state, controller, _) {
+                    //      SimpleElevatedButton(
+                    //         color: Pallete.backgroundColor,
+                    //         textColor: Pallete.primaryColor,
+                    //         buttonHeight: 50,
+                    //         buttonWidth: double.infinity,
+                    //         roundedRadius: 5,
+                    //         onPressed: () {
+                    //           controller.signInWithProvider(TargetPlatform.android);
+                    //         },
+                    //         text: 'Sign in with Google');
+                    //   },
+                    // ),
+                    // Padding(
+                    //   padding: const EdgeInsets.all(16.0),
+                    //   child: Text(
+                    //     'OR',
+                    //     style: subtitle14.copyWith(
+                    //         color: Pallete.primaryLightColor,
+                    //         fontWeight: FontWeight.w400),
+                    //   ),
+                    // ),
+                    return SimpleElevatedButton(
+                        color: Pallete.backgroundColor,
+                        textColor: Pallete.primaryColor,
+                        buttonHeight: 50,
+                        buttonWidth: double.infinity,
+                        roundedRadius: 5,
+                        onPressed: () {
+                          ref.watch(pdfProvider.notifier).editPdf(
+                                PdfModel.createEmpty()
+                                    .copyWith(pdfId: 'noSave'),
+                              );
+
+                          Get.toNamed('/resume');
+                        },
+                        text: 'Go To Home To Create Resume');
+
+                    Text(
+                      'Using your Google account will allow you to save up to 3 resumes, you can still continue without signing in but your resume will not be saved once you leave/refresh the site.',
+                      style: caption12.copyWith(color: Pallete.backgroundColor),
+                      // textAlign: TextAlign.center,
+                    );
+                  }),
             ],
           ),
         ),

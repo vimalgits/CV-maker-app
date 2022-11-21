@@ -7,7 +7,9 @@ class CustomTextTile extends StatelessWidget {
   final IconData icon;
   final String text;
 
-  const CustomTextTile({Key? key, required this.onTap, required this.icon, required this.text}) : super(key: key);
+  const CustomTextTile(
+      {Key? key, required this.onTap, required this.icon, required this.text})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,8 @@ class CustomTextTile extends StatelessWidget {
             children: [
               Text(
                 text,
-                style: subtitle14.copyWith(color: Pallete.primaryColor, fontWeight: FontWeight.bold),
+                style: subtitle14.copyWith(
+                    color: Pallete.primaryColor, fontWeight: FontWeight.bold),
               ),
             ],
           )),

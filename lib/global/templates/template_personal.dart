@@ -4,6 +4,8 @@ import 'package:pdf/widgets.dart';
 import 'package:pdf/pdf.dart';
 import 'package:printing/printing.dart';
 
+import '../../pages/form/widget/image.dart';
+
 Future<Uint8List> generateDocument(context,
     {required PdfModel pdfModel}) async {
   final doc = Document(pageMode: PdfPageMode.outlines);

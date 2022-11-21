@@ -12,16 +12,13 @@ PdfModel pdfModelData = _pdfEmpty.copyWith(
   resumeSummary: summary,
   skills: skillsData,
   languages: language,
-  
 );
-
-
 
 Section employmentSectionData = const Section(
     sectionId: 'employmentSection',
     textOne: 'Flutter Developer',
-    textTwo: 'Naturally Plus Singapore Pte Ltd',
-    textThree: 'Singapore',
+    textTwo: 'Fresher',
+    textThree: '',
     startDate: 'JUNE 2021',
     endDate: 'PRESENT',
     description:
@@ -30,8 +27,8 @@ Section employmentSectionData = const Section(
 Section activitySectionData = const Section(
     sectionId: 'activitySection',
     textOne: 'Member',
-    textTwo: 'Singapore Computer Society (SCS) Student Chapter',
-    textThree: 'Singapore',
+    textTwo: 'Presentation Event',
+    textThree: 'Ajmer',
     startDate: 'AUG 2019',
     endDate: 'SEP 2019',
     description:
@@ -39,28 +36,30 @@ Section activitySectionData = const Section(
 
 Section educationSectionData = const Section(
     sectionId: 'educationSection',
-    textOne: 'University of Newcastle, Australia',
-    textTwo: 'Bachelor of Information Technology',
-    textThree: 'Singapore',
-    startDate: 'SEP 2020',
-    endDate: 'MAY 2022',
+    textOne: 'Maharishi Dayanand Saraswati University,Ajmer',
+    textTwo: 'Master of Computer Application',
+    textThree: 'Ajmer',
+    startDate: 'SEP 2019',
+    endDate: 'DEC 2022',
     description:
-        'I graduated with double majors in Business Technology and Systems Development, during this undergraduate program I learned different development frameworks like ASP.NET for the web, Xamarin for mobile, UWP (Universal Windows Platform) for creating a desktop application. Along with this I also learned to use business and prototyping software like Power-Bi.');
+        'I graduated with Computer Application, during this undergraduate program I learned different development frameworks like ASP.NET for the web, Android,Flutter for mobile,Python for creating a desktop application. Along with this I also learned to WordPress Website Development.');
 
 Summary summary = const Summary(
     professionalSummary:
-        'I am a motivated IT graduate looking forward to expanding my knowledge and career in the IT sector. Along with that, I want to experience working with professionals in the field so that I am able to stay up-to-date and learn the best practices that should be used while working in the IT sector. As for me, some of my greatest strengths are communicating and working alongside my peers.');
+        'I am a motivated IT post graduate looking forward to expanding my knowledge and career in the IT sector. Along with that, I want to experience working with professionals in the field so that I am able to stay up-to-date and learn the best practices that should be used while working in the IT sector. As for me, some of my greatest strengths are communicating and working alongside my peers.');
 
 Personal personalData = const Personal(
-  firstName: 'Varun',
-  lastName: 'Bhalerao',
-  jobTitle: 'Full Stack Developer',
-  email: 'varunbhalerao5902@gmail.com',
-  phoneNumber: '8975351866',
+  firstName: 'Vimal',
+  lastName: 'Sharma',
+  jobTitle: 'software Developer',
+  email: 'vs151097@gmail.com',
+  phoneNumber: '6376395453',
 );
 
-Links linksData =
-    const Links(linksId: '01', linkName: 'Linkedin', linkUrl: 'https://www.linkedin.com/in/varun-bhalerao-677a48179/');
+Links linksData = const Links(
+    linksId: '01',
+    linkName: 'Linkedin',
+    linkUrl: 'https://www.linkedin.com/in/vimal-sharma-b4817b24a/');
 
 List<Skill> skillsData = const [
   Skill(skillId: '01', skillName: "Flutter"),
@@ -78,5 +77,4 @@ List<Skill> skillsData = const [
 List<Skill> language = const [
   Skill(skillId: '01', skillName: "English"),
   Skill(skillId: '02', skillName: "Hindi"),
-  Skill(skillId: '03', skillName: "Marathi"),
 ];

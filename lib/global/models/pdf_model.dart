@@ -18,7 +18,8 @@ class Section with _$Section {
     @JsonKey(defaultValue: 0) int? position,
   }) = _Section;
 
-  factory Section.fromJson(Map<String, dynamic> json) => _$SectionFromJson(json);
+  factory Section.fromJson(Map<String, dynamic> json) =>
+      _$SectionFromJson(json);
 
   factory Section.createEmpty() {
     return Section(sectionId: uuid.v4(), textOne: 'Untitled');
@@ -41,7 +42,8 @@ class Personal with _$Personal {
     @JsonKey(defaultValue: null) DateTime? dateOfBirth,
   }) = _Personal;
 
-  factory Personal.fromJson(Map<String, dynamic> json) => _$PersonalFromJson(json);
+  factory Personal.fromJson(Map<String, dynamic> json) =>
+      _$PersonalFromJson(json);
 }
 
 @freezed
@@ -52,7 +54,8 @@ class Summary with _$Summary {
     @JsonKey(defaultValue: "") String? professionalSummary,
   }) = _Summary;
 
-  factory Summary.fromJson(Map<String, dynamic> json) => _$SummaryFromJson(json);
+  factory Summary.fromJson(Map<String, dynamic> json) =>
+      _$SummaryFromJson(json);
 }
 
 @freezed
@@ -89,7 +92,6 @@ class Links with _$Links {
 
 @freezed
 class PdfModel with _$PdfModel {
-
   @JsonSerializable(explicitToJson: true)
   const factory PdfModel({
     required String pdfId,
@@ -107,7 +109,8 @@ class PdfModel with _$PdfModel {
     @JsonKey(defaultValue: null) DateTime? lastSaved,
   }) = _PdfModel;
 
-  factory PdfModel.fromJson(Map<String, dynamic> json) => _$PdfModelFromJson(json);
+  factory PdfModel.fromJson(Map<String, dynamic> json) =>
+      _$PdfModelFromJson(json);
 
   factory PdfModel.createEmpty() {
     return PdfModel(

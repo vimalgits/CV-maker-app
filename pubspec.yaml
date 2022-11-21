@@ -11,8 +11,9 @@ environment:
 
 dependencies:
   flutter:
+    
     sdk: flutter
-
+    
   url_launcher: ^6.0.18
   cupertino_icons: ^1.0.2
   path_provider: ^2.0.5
@@ -38,6 +39,7 @@ dependencies:
   firebase_database: ^9.0.5
   flutterfire_ui: ^0.3.1
   url_strategy: ^0.2.0
+  image_picker: ^0.8.6
 
 dev_dependencies:
   flutter_test:
@@ -46,5 +48,5 @@ dev_dependencies:
   flutter_lints: ^1.0.0
 
 flutter:
-
+  
   uses-material-design: true  

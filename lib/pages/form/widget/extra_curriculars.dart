@@ -49,7 +49,9 @@ class Extracurriculars extends ConsumerWidget {
                   child: ActivityFullWidget(
                     section: activityList[index],
                     onPressed: () {
-                      ref.read(pdfProvider.notifier).removeActivitySection(activityList[index]);
+                      ref
+                          .read(pdfProvider.notifier)
+                          .removeActivitySection(activityList[index]);
                     },
                   ),
                 );
@@ -62,7 +64,9 @@ class Extracurriculars extends ConsumerWidget {
             child: SimpleElevatedButton(
                 buttonWidth: double.infinity,
                 onPressed: () {
-                  ref.read(pdfProvider.notifier).addActivitySection(Section.createEmpty());
+                  ref
+                      .read(pdfProvider.notifier)
+                      .addActivitySection(Section.createEmpty());
                 },
                 text: 'Add another activity'),
           )
@@ -107,20 +111,22 @@ class _SectionFullWidgetState extends ConsumerState<ActivityFullWidget> {
         if (checkChangeText(cityController.text, widget.section.textThree)) {
           cityController.text = widget.section.textThree ?? "";
         }
-        if (checkChangeText(startDateController.text, widget.section.startDate)) {
+        if (checkChangeText(
+            startDateController.text, widget.section.startDate)) {
           startDateController.text = widget.section.startDate ?? "";
         }
         if (checkChangeText(endDateController.text, widget.section.endDate)) {
           endDateController.text = widget.section.endDate ?? "";
         }
-        if (checkChangeText(descriptionController.text, widget.section.description)) {
+        if (checkChangeText(
+            descriptionController.text, widget.section.description)) {
           descriptionController.text = widget.section.description ?? "";
         }
       });
     });
 
     return BorderedExpansionTile(
-      title: widget.section.textOne ?? "Test",
+      title: widget.section.textOne ?? "Select",
       children: [
         Row(
           children: [
@@ -129,7 +135,8 @@ class _SectionFullWidgetState extends ConsumerState<ActivityFullWidget> {
                 textEditingController: jobController,
                 labelText: 'Function Title',
                 onTextChanged: (val) {
-                  ref.read(pdfProvider.notifier).editActivitySection(widget.section.copyWith(textOne: val));
+                  ref.read(pdfProvider.notifier).editActivitySection(
+                      widget.section.copyWith(textOne: val));
                 },
               ),
             ),
@@ -138,7 +145,8 @@ class _SectionFullWidgetState extends ConsumerState<ActivityFullWidget> {
                 textEditingController: employerController,
                 labelText: 'Employer',
                 onTextChanged: (val) {
-                  ref.read(pdfProvider.notifier).editActivitySection(widget.section.copyWith(textTwo: val));
+                  ref.read(pdfProvider.notifier).editActivitySection(
+                      widget.section.copyWith(textTwo: val));
                 },
               ),
             ),
@@ -154,7 +162,8 @@ class _SectionFullWidgetState extends ConsumerState<ActivityFullWidget> {
                       textEditingController: startDateController,
                       labelText: 'Start Date',
                       onTextChanged: (val) {
-                        ref.read(pdfProvider.notifier).editActivitySection(widget.section.copyWith(startDate: val));
+                        ref.read(pdfProvider.notifier).editActivitySection(
+                            widget.section.copyWith(startDate: val));
                       },
                     ),
                   ),
@@ -163,7 +172,8 @@ class _SectionFullWidgetState extends ConsumerState<ActivityFullWidget> {
                       textEditingController: endDateController,
                       labelText: 'End Date',
                       onTextChanged: (val) {
-                        ref.read(pdfProvider.notifier).editActivitySection(widget.section.copyWith(endDate: val));
+                        ref.read(pdfProvider.notifier).editActivitySection(
+                            widget.section.copyWith(endDate: val));
                       },
                     ),
                   ),
@@ -175,7 +185,8 @@ class _SectionFullWidgetState extends ConsumerState<ActivityFullWidget> {
                 textEditingController: cityController,
                 labelText: 'City',
                 onTextChanged: (val) {
-                  ref.read(pdfProvider.notifier).editActivitySection(widget.section.copyWith(textThree: val));
+                  ref.read(pdfProvider.notifier).editActivitySection(
+                      widget.section.copyWith(textThree: val));
                 },
               ),
             ),
@@ -187,7 +198,9 @@ class _SectionFullWidgetState extends ConsumerState<ActivityFullWidget> {
           labelText: "Description",
           textEditingController: descriptionController,
           onTextChanged: (val) {
-            ref.read(pdfProvider.notifier).editActivitySection(widget.section.copyWith(description: val));
+            ref
+                .read(pdfProvider.notifier)
+                .editActivitySection(widget.section.copyWith(description: val));
           },
         ),
         Padding(

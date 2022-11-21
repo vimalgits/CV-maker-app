@@ -7,6 +7,8 @@ import 'package:fresume_app/pages/form/widget/links.dart';
 import 'package:fresume_app/pages/form/widget/personal_details.dart';
 import 'package:fresume_app/pages/form/widget/profile_summary.dart';
 import 'package:fresume_app/pages/form/widget/skills.dart';
+import 'package:fresume_app/pages/form/widget/image.dart';
+import '../widget/image.dart';
 
 class FormSide extends StatefulWidget {
   const FormSide({Key? key}) : super(key: key);
@@ -27,9 +29,13 @@ class _FormSideState extends State<FormSide> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: const [
+            //here we need to call image class
+
             PersonalDetails(),
             SizedBox(height: 8),
             ProfileSummary(),
+            SizedBox(height: 8),
+            // Myimage(),
             SizedBox(height: 8),
             LinksInfo(),
             SizedBox(height: 8),

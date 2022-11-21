@@ -49,7 +49,9 @@ class LanguagesInfo extends ConsumerWidget {
                   child: LanguageFullWidget(
                     language: languagesList[index],
                     onPressed: () {
-                      ref.read(pdfProvider.notifier).removeLanguage(languagesList[index]);
+                      ref
+                          .read(pdfProvider.notifier)
+                          .removeLanguage(languagesList[index]);
                     },
                   ),
                 );
@@ -62,7 +64,9 @@ class LanguagesInfo extends ConsumerWidget {
             child: SimpleElevatedButton(
                 buttonWidth: double.infinity,
                 onPressed: () {
-                  ref.read(pdfProvider.notifier).addLanguage(Skill.createEmpty());
+                  ref
+                      .read(pdfProvider.notifier)
+                      .addLanguage(Skill.createEmpty());
                 },
                 text: 'Add another language'),
           )
@@ -93,20 +97,23 @@ class _SectionFullWidgetState extends ConsumerState<LanguageFullWidget> {
   Widget build(BuildContext context) {
     WidgetsBinding.instance!.addPostFrameCallback((_) async {
       setState(() {
-        if (checkChangeText(languageNameController.text, widget.language.skillName)) {
+        if (checkChangeText(
+            languageNameController.text, widget.language.skillName)) {
           languageNameController.text = widget.language.skillName ?? "";
         }
       });
     });
 
     return BorderedExpansionTile(
-      title: widget.language.skillName ?? "Test",
+      title: widget.language.skillName ?? "select",
       children: [
         RectBorderFormField(
           textEditingController: languageNameController,
-          labelText: 'Skill Name',
+          labelText: 'Language Name',
           onTextChanged: (val) {
-            ref.read(pdfProvider.notifier).editLanguage(widget.language.copyWith(skillName: val));
+            ref
+                .read(pdfProvider.notifier)
+                .editLanguage(widget.language.copyWith(skillName: val));
           },
         ),
         Padding(

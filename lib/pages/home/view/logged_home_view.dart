@@ -49,7 +49,7 @@ class LoggedHomeAuthView extends ConsumerWidget {
               backgroundColor: Pallete.backgroundColor,
               appBar: AppBar(
                 backgroundColor: Pallete.primaryLightColor,
-                elevation: 0,
+                elevation: 2,
                 centerTitle: false,
                 title: Text(
                   'YOUR RESUME ACCOUNT',

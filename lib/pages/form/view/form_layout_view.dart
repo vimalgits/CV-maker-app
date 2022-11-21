@@ -80,7 +80,7 @@ class _ResumeEditState extends ConsumerState<ResumeEdit>
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
           child: SimpleOutlinedButton(
               onPressed: () async {
-                //ref.read(pdfProvider.notifier).editPdf(pdfModelData);
+                ref.read(pdfProvider.notifier).editPdf(pdfModelData);
               },
               text: 'Fill'),
         ),

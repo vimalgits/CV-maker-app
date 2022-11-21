@@ -53,6 +53,8 @@ class _PersonalDetailsState extends ConsumerState<PersonalDetails> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          //here we need to add image
+
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Text(
@@ -65,7 +67,9 @@ class _PersonalDetailsState extends ConsumerState<PersonalDetails> {
             initialValue: _pdfProvider.resumePersonal!.email,
             labelText: 'Email Address',
             onTextChanged: (val) {
-              ref.read(pdfProvider.notifier).editPersonal(personal.copyWith(email: val));
+              ref
+                  .read(pdfProvider.notifier)
+                  .editPersonal(personal.copyWith(email: val));
             },
           ),
           Row(
@@ -76,7 +80,9 @@ class _PersonalDetailsState extends ConsumerState<PersonalDetails> {
                   initialValue: returnCorrectStringString(personal.firstName),
                   labelText: 'First Name',
                   onTextChanged: (val) {
-                    ref.read(pdfProvider.notifier).editPersonal(personal.copyWith(firstName: val));
+                    ref
+                        .read(pdfProvider.notifier)
+                        .editPersonal(personal.copyWith(firstName: val));
                   },
                 ),
               ),
@@ -86,7 +92,9 @@ class _PersonalDetailsState extends ConsumerState<PersonalDetails> {
                   initialValue: returnCorrectStringString(personal.lastName),
                   labelText: 'Last Name',
                   onTextChanged: (val) {
-                    ref.read(pdfProvider.notifier).editPersonal(personal.copyWith(lastName: val));
+                    ref
+                        .read(pdfProvider.notifier)
+                        .editPersonal(personal.copyWith(lastName: val));
                   },
                 ),
               ),
@@ -101,7 +109,9 @@ class _PersonalDetailsState extends ConsumerState<PersonalDetails> {
                   labelText: 'Job Role',
                   hintText: 'eg. Software Developer',
                   onTextChanged: (val) {
-                    ref.read(pdfProvider.notifier).editPersonal(personal.copyWith(jobTitle: val));
+                    ref
+                        .read(pdfProvider.notifier)
+                        .editPersonal(personal.copyWith(jobTitle: val));
                   },
                 ),
               ),
@@ -111,7 +121,9 @@ class _PersonalDetailsState extends ConsumerState<PersonalDetails> {
                   initialValue: returnCorrectStringString(personal.email),
                   labelText: 'Phone Number',
                   onTextChanged: (val) {
-                    ref.read(pdfProvider.notifier).editPersonal(personal.copyWith(phoneNumber: val));
+                    ref
+                        .read(pdfProvider.notifier)
+                        .editPersonal(personal.copyWith(phoneNumber: val));
                   },
                 ),
               ),

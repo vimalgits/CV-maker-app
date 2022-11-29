@@ -35,7 +35,7 @@ class _FormSideState extends State<FormSide> {
             SizedBox(height: 8),
             ProfileSummary(),
             SizedBox(height: 8),
-            // Myimage(),
+            myimage(),
             SizedBox(height: 8),
             LinksInfo(),
             SizedBox(height: 8),

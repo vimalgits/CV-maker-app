@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:typed_data';
 import 'package:fresume_app/global/models/pdf_model.dart';
 import 'package:pdf/widgets.dart';
@@ -5,6 +6,9 @@ import 'package:pdf/pdf.dart';
 import 'package:printing/printing.dart';
 
 import '../../pages/form/widget/image.dart';
+
+import 'package:pdf/pdf.dart';
+import 'package:pdf/widgets.dart' as pw;
 
 Future<Uint8List> generateDocument(context,
     {required PdfModel pdfModel}) async {
@@ -14,6 +18,9 @@ Future<Uint8List> generateDocument(context,
   var italic = await PdfGoogleFonts.nunitoSansItalic();
   var bold = await PdfGoogleFonts.nunitoSansBold();
   var boldItalic = await PdfGoogleFonts.nunitoSansBoldItalic();
+  //final image = pw.MemoryImage(
+  //File('a').readAsBytesSync(),
+  //);
 
   doc.addPage(page(pdfModel,
       regular: regular, italic: italic, bold: bold, boldItalic: boldItalic));
@@ -43,6 +50,7 @@ MultiPage page(PdfModel pdfModel,
             base: regular, italic: italic, bold: bold, boldItalic: boldItalic),
       ),
       build: (context) {
+        ImageProvider _pickImage;
         return [
           Partitions(children: [
             Partition(
@@ -104,6 +112,8 @@ MultiPage page(PdfModel pdfModel,
       });
 }
 
+class _myimage {}
+
 Container nameAndJobRole(Personal personal) {
   return Container(
     child: Padding(
@@ -161,7 +171,7 @@ profile(Summary summary, Font bold) {
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     ),

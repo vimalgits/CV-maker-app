@@ -18,7 +18,7 @@ class myimage extends StatefulWidget {
 }
 
 class _myimageState extends State<myimage> {
-  File? _pickedImage;
+  File? _image;
   Uint8List? webImage = Uint8List(8);
   // final image = pw.MemoryImage(
   //   File('a').readAsBytesSync(),
@@ -64,11 +64,20 @@ class _myimageState extends State<myimage> {
 
         setState(() {
           webImage = f;
-          _pickedImage = File("a");
+          _image = File("a");
         });
       } else {
         print("no image found");
       }
     }
   }
+
+  // createPDF() async {
+  //   var img;
+  //   final image = pw.MemoryImage(img.readAsBytesSync());
+  //   pdf.addPage(pw.page(Build:(pw.Context context){
+  //     return pw.Image(image);
+  //   }));
+
+  // }
 }

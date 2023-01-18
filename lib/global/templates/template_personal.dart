@@ -6,7 +6,7 @@ import 'package:pdf/pdf.dart';
 import 'package:printing/printing.dart';
 
 import '../../pages/form/widget/image.dart';
-
+import 'package:flutter/services.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 
@@ -18,12 +18,11 @@ Future<Uint8List> generateDocument(context,
   var italic = await PdfGoogleFonts.nunitoSansItalic();
   var bold = await PdfGoogleFonts.nunitoSansBold();
   var boldItalic = await PdfGoogleFonts.nunitoSansBoldItalic();
-  //final image = pw.MemoryImage(
-  //File('a').readAsBytesSync(),
-  //);
 
-  doc.addPage(page(pdfModel,
-      regular: regular, italic: italic, bold: bold, boldItalic: boldItalic));
+  doc.addPage(
+    page(pdfModel,
+        regular: regular, italic: italic, bold: bold, boldItalic: boldItalic),
+  );
 
   return await doc.save();
 }
@@ -50,7 +49,6 @@ MultiPage page(PdfModel pdfModel,
             base: regular, italic: italic, bold: bold, boldItalic: boldItalic),
       ),
       build: (context) {
-        ImageProvider _pickImage;
         return [
           Partitions(children: [
             Partition(
@@ -58,6 +56,12 @@ MultiPage page(PdfModel pdfModel,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // Container(
+                  //   height: 100,
+                  //   width: 100,
+                  //   color: PdfColors.amber,
+                  //   // child:  pimage(ByteData bytes)
+                  // ),
                   nameAndJobRole(pdfModel.resumePersonal!),
                   profile(pdfModel.resumeSummary!, bold),
                   if (pdfModel.employment != null &&
@@ -112,7 +116,17 @@ MultiPage page(PdfModel pdfModel,
       });
 }
 
-class _myimage {}
+// Future<Container> pimage(ByteData bytes) async {
+//   final ByteData bytes = await rootBundle.load('assets/images/pic.png');
+//   final Uint8List byteList = bytes.buffer.asUint8List();
+
+//   return Container(
+//       child: pw.Image(
+//           pw.MemoryImage(
+//             byteList,
+//           ),
+//           fit: pw.BoxFit.fitHeight));
+// }
 
 Container nameAndJobRole(Personal personal) {
   return Container(

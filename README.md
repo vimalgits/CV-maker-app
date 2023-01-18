@@ -1,6 +1,6 @@
-# FRESUME
+# CV MAKER
 
-#### Make resumes for free
+#### Make CV for free
 
 A responsive resume maker made with Flutter & Firebase. Features include Google Sign in, non logged in resume maker, saving and managing up to 3 resumes.
 
